@@ -3,7 +3,7 @@ Main code in C++ and graphs in Pylab
 
 ## Objectives
 
-The goal of this project is to implement and compare the Euler schema and the Milshtein schema on the Black-Scholes model. The time horizon of the simulation is denoted _T_, the discretisation step is <img src="https://latex.codecogs.com/svg.image?\bg_white&space;\Delta&space;t&space;=&space;T/N" title="\bg_white \Delta t = T/N" /> with <img src="https://latex.codecogs.com/svg.image?\bg_white&space;N&space;\in&space;\mathbb{N}^*" title="\bg_white N \in \mathbb{N}^*" />. We denote <img src="https://latex.codecogs.com/svg.image?\bg_white&space;t_k&space;=&space;k\Delta&space;t" title="\bg_white t_k = k\Delta t" /> the k-th discretisation step with <img src="https://latex.codecogs.com/svg.image?\bg_white&space;k\in&space;\left\{&space;0,...,N&space;\right\}" title="\bg_white k\in \left\{ 0,...,N \right\}" />.
+The goal of this project is to implement and compare the Euler schema and the Milshtein schema on the Black-Scholes model. The time horizon of the simulation is denoted _T_, the discretisation step is ![equation](https://latex.codecogs.com/svg.image?\bg_white&space;\Delta&space;t&space;=&space;T/N) with <img src="https://latex.codecogs.com/svg.image?\bg_white&space;N&space;\in&space;\mathbb{N}^*" title="\bg_white N \in \mathbb{N}^*" />. We denote <img src="https://latex.codecogs.com/svg.image?\bg_white&space;t_k&space;=&space;k\Delta&space;t" title="\bg_white t_k = k\Delta t" /> the k-th discretisation step with <img src="https://latex.codecogs.com/svg.image?\bg_white&space;k\in&space;\left\{&space;0,...,N&space;\right\}" title="\bg_white k\in \left\{ 0,...,N \right\}" />.
 
 ## Strong convergence
 
