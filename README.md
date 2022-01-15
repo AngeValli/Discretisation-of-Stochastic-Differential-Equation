@@ -3,7 +3,11 @@ Main code in C++ and graphs in Pylab
 
 ## Objectives
 
-The goal of this project is to implement and compare the Euler schema and the Milshtein schema on the Black-Scholes model. The time horizon of the simulation is denoted _T_, the discretisation step is <img src="https://latex.codecogs.com/svg.image?\Delta&space;t&space;=&space;\frac{T}{N}" title="\Delta t = \frac{T}{N}" /> with <img src="https://latex.codecogs.com/svg.image?N&space;\in&space;\mathbb{N}^*" title="N \in \mathbb{N}^*" />. We denote <img src="https://latex.codecogs.com/svg.image?t_k&space;=&space;k\Delta&space;t" title="t_k = k\Delta t" /> the k-th discretisation step with <img src="https://latex.codecogs.com/svg.image?k&space;\in&space;\left\{&space;0,...,N&space;\right\}" title="k \in \left\{ 0,...,N \right\}" />.
+The goal of this project is to implement and compare the Euler schema and the Milshtein schema on the Black-Scholes model. We denote <img src="https://latex.codecogs.com/svg.image?T" title="T" /> the time horizon, we have the following :
+
+The discretisation step is <img src="https://latex.codecogs.com/svg.image?\Delta&space;t&space;=&space;\frac{T}{N}" title="\Delta t = \frac{T}{N}" /> with <img src="https://latex.codecogs.com/svg.image?N&space;\in&space;\mathbb{N}^*" title="N \in \mathbb{N}^*" />. 
+
+The k-th discretisation step <img src="https://latex.codecogs.com/svg.image?t_k&space;=&space;k\Delta&space;t" title="t_k = k\Delta t" /> with <img src="https://latex.codecogs.com/svg.image?k&space;\in&space;\left\{&space;0,...,N&space;\right\}" title="k \in \left\{ 0,...,N \right\}" />.
 
 ## Strong convergence
 
@@ -20,16 +24,29 @@ The values of the underlying are as follows :
 
 The _vitfort.cpp_ file computes the simulation using those equations and write the results in the _vitfort.csv_ file. Then, the file _plot_vitfort.py_ loads this result and plot it using Pylab.
 
-Theoretically, the quantity <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(\max_{1\leqslant&space;k\leqslant&space;&space;N}&space;(S_{\frac{kT}{N}}&space;-&space;S^{e}_{\frac{kT}{N}})^2)" title="\mathbb{E}(\max_{1\leqslant k\leqslant N} (S_{\frac{kT}{N}} - S^{e}_{\frac{kT}{N}})^2)" /> depends on <img src="https://latex.codecogs.com/svg.image?1/N" title="1/N" /> and the quantity <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(\max_{1\leqslant&space;k\leqslant&space;&space;N}&space;(S_{\frac{kT}{N}}&space;-&space;S^{m}_{\frac{kT}{N}})^2)" title="\mathbb{E}(\max_{1\leqslant k\leqslant N} (S_{\frac{kT}{N}} - S^{m}_{\frac{kT}{N}})^2)" /> depends on <img src="https://latex.codecogs.com/svg.image?1/N^2" title="1/N^2" />.
+Theoretically, the quantity
+
+<img src="https://latex.codecogs.com/svg.image?\mathbb{E}(\max_{1\leqslant&space;k\leqslant&space;&space;N}&space;(S_{\frac{kT}{N}}&space;-&space;S^{e}_{\frac{kT}{N}})^2)" title="\mathbb{E}(\max_{1\leqslant k\leqslant N} (S_{\frac{kT}{N}} - S^{e}_{\frac{kT}{N}})^2)" />
+
+depends on <img src="https://latex.codecogs.com/svg.image?\frac{1}{N}" title="\frac{1}{N}" /> and the quantity 
+
+<img src="https://latex.codecogs.com/svg.image?\mathbb{E}(\max_{1\leqslant&space;k\leqslant&space;&space;N}&space;(S_{\frac{kT}{N}}&space;-&space;S^{m}_{\frac{kT}{N}})^2)" title="\mathbb{E}(\max_{1\leqslant k\leqslant N} (S_{\frac{kT}{N}} - S^{m}_{\frac{kT}{N}})^2)" />
+
+depends on <img src="https://latex.codecogs.com/svg.image?\frac{1}{N^2}" title="\frac{1}{N^2}" />.
 
 ## Weak convergence
 
 ### Weak speed
 
-Now, we focus our study on the weak speed of Euler and Milshtein schemas to compute a European Put of maturity T in the Black-Scholes model.
-We want to identify the dependance in <img src="https://latex.codecogs.com/svg.image?N" title="N" /> of the quantities <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> and <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{m}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{m}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" />. We first compute <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S_{T})^+)" /> with Black-Scholes formula and then we can approach this expectation with a Monte-Carlo simulation, using the same brownian increments to compute <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+)" /> and <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{m}_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{m}_{T})^+)" />. This is a variance reduction technique by control variates method.
+Now, we focus our study on the weak speed of Euler and Milshtein schemas to compute a European Put of maturity <img src="https://latex.codecogs.com/svg.image?T" title="T" /> in the Black-Scholes model.
 
-The theoretical behaviour of <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> is to be dependent of <img src="https://latex.codecogs.com/svg.image?N" title="N" />.
+We want to identify the dependance in <img src="https://latex.codecogs.com/svg.image?N" title="N" /> of the quantities <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> and <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{m}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{m}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" />.
+
+We first compute <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S_{T})^+)" /> with Black-Scholes formula and then we can approach this expectation with a Monte-Carlo simulation, using the same brownian increments to compute <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+)" /> and <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{m}_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{m}_{T})^+)" />.
+
+This is a variance reduction technique by control variates method.
+
+The theoretical behavior of <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> is to be dependent of <img src="https://latex.codecogs.com/svg.image?N" title="N" />.
 
 We conclude on the efficiency of control variates method to reduce the computational time.
 
