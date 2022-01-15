@@ -7,7 +7,7 @@ The goal of this project is to implement and compare the Euler schema and the Mi
 
 The discretisation step is <img src="https://latex.codecogs.com/svg.image?\Delta&space;t&space;=&space;\frac{T}{N}" title="\Delta t = \frac{T}{N}" /> with <img src="https://latex.codecogs.com/svg.image?N&space;\in&space;\mathbb{N}^*" title="N \in \mathbb{N}^*" />. 
 
-The k-th discretisation step <img src="https://latex.codecogs.com/svg.image?t_k&space;=&space;k\Delta&space;t" title="t_k = k\Delta t" /> with <img src="https://latex.codecogs.com/svg.image?k&space;\in&space;\left\{&space;0,...,N&space;\right\}" title="k \in \left\{ 0,...,N \right\}" />.
+The k-th discretisation step is <img src="https://latex.codecogs.com/svg.image?t_k&space;=&space;k\Delta&space;t" title="t_k = k\Delta t" /> with <img src="https://latex.codecogs.com/svg.image?k&space;\in&space;\left\{&space;0,...,N&space;\right\}" title="k \in \left\{ 0,...,N \right\}" />.
 
 ## Strong convergence
 
@@ -46,6 +46,8 @@ We first compute <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-r
 
 This is a variance reduction technique by control variates method.
 
+The _vitfaible.cpp_ file computes the simulation using those equations and write the results in the _vitfaible.csv_ file. Then, the file _plot_vitfaible.py_ loads this result and plot it using Pylab.
+
 The theoretical behavior of <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> is to be dependent of <img src="https://latex.codecogs.com/svg.image?N" title="N" />.
 
 We conclude on the efficiency of control variates method to reduce the computational time.
@@ -66,5 +68,7 @@ The evolution equations are the following :
 -
 -
 -
+
+The _romberg.cpp_ file computes the simulation using those equations and write the results in the _romberg.csv_ file. Then, the file _plot_romberg.py_ loads this result and plot it using Pylab.
 
 We conclude
