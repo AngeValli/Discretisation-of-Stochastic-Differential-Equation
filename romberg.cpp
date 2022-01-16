@@ -6,16 +6,16 @@
 
 using namespace std;
 
-const double T = 1; /* horizon */
-const double sig = 0.2; /* volatilité */
-const double r = 0.05; /* taux d'intérêt */
+const double T = 1; /* Time horizon */
+const double sig = 0.2; /* Volatility */
+const double r = 0.05; /* Interest rates */
 const double K = 110;
-const double S0 = 100; /* valeur initial du sous-jacent */
+const double S0 = 100; /* Initial value of the underlying */
 const double R = 10;
-const int M = 1000000; /* nombre de simulations indépendantes */
+const int M = 1000000; /* Number of independent simulations */
 const double RM = R*M;
-const int P = 4; /* nombre d'itérations sur la valeur d pas */
-double N = 1; /* nombre initial de pas de discrétisation */
+const int P = 4; /* Number of iterations of d steps */
+double N = 1; /* Number of initial discretisation steps */
 double current_sample;
 double current_sample_1;
 double current_sample_2;
