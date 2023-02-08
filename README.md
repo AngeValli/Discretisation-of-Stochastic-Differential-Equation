@@ -48,9 +48,9 @@ This is a variance reduction technique by control variates method.
 
 The _vitfaible.cpp_ file computes the simulation using those equations and write the results in the _vitfaible.csv_ file. Then, the file _plot_vitfaible.py_ loads this result and plot it using Pylab.
 
-The theoretical behavior of <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> is to be dependent of <img src="https://latex.codecogs.com/svg.image?N" title="N" />.
+The theoretical behavior of <img src="https://latex.codecogs.com/svg.image?\mathbb{E}(e^{-rT}&space;(K&space;-&space;S^{e}_{T})^&plus;)&space;-&space;\mathbb{E}(e^{-rT}&space;(K&space;-&space;S_{T})^&plus;)" title="\mathbb{E}(e^{-rT} (K - S^{e}_{T})^+) - \mathbb{E}(e^{-rT} (K - S_{T})^+)" /> is to be dependent of <img src="https://latex.codecogs.com/svg.image?\frac{1}{N}" title="\frac{1}{N}" />.
 
-We conclude on the efficiency of control variates method to reduce the computational time.
+As we conduct our study in the context of the Black-Scholes model, the coefficients <img src="https://latex.codecogs.com/svg.image?\sigma" title="\sigma" /> and <img src="https://latex.codecogs.com/svg.image?b" title="b" /> are constants about the time, which leads to the hypothesis for both weak and strong speed to be always verified. Therefore, the model is too general to distinguish between both methods. 
 
 ### Romberg's extrapolation
 
@@ -71,4 +71,4 @@ The evolution equations are the following :
 
 The _romberg.cpp_ file computes the simulation using those equations and write the results in the _romberg.csv_ file. Then, the file _plot_romberg.py_ loads this result and plot it using Pylab.
 
-We conclude
+As there are more quantities to compute regarding the previous methods, the execution time of this code is higher.
